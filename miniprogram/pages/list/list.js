@@ -8,74 +8,97 @@ Page({
    * 页面的初始数据
    */
   data: {
-    comments:''
+    comments: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-     this.getData();
+  onLoad: function(options) {
+    this.getData();
 
   },
-getData:function(){
-  var that = this;
-  comments.get({
-    success(res){
-      console.log(res.data)
-      that.setData({
-        comments:res.data
-      })
-    }
-  })
-},
+  //获取云端数据
+  getData: function() {
+    var that = this;
+    comments.get({
+      success(res) {
+        console.log(res.data);
+        var itemData = res.data.reverse(); //让数据倒序呈现
+
+        that.dealDate(itemData);
+        that.setData({
+          comments: itemData
+        });
+
+      }
+    })
+  },
+  //转换时间戳
+  dealDate: function(itemData) {
+    //console.log(itemData)
+    //通过forEach来遍历数组进行转换
+    itemData.forEach(function(item) {
+      //console.log(item);
+      var dateInfo = new Date(item.time);
+      //console.log(dateInfo);
+      item.timeInfo = {
+        year: dateInfo.getFullYear(),
+        month: dateInfo.getMonth() + 1,
+        date: dateInfo.getDate(),
+        hours: dateInfo.getHours(),
+        minutes: dateInfo.getMinutes()
+      }
+    });
+    //console.log(item.timeInfo);
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

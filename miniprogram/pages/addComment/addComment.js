@@ -36,7 +36,7 @@ Page({
   },
   //获取评论内容
   onInput: function(e) {
-    console.log(e);
+    //console.log(e);
     var comment = e.detail.value;
     this.setData({
       "form.comment": comment
@@ -51,11 +51,12 @@ Page({
       // _id: 'todo-identifiant-aleatoire', // 可选自定义 _id，在此处场景下用数据库自动分配的就可以了
       img: fileID,
       comment: form.comment,
+      time: Date.now()
       
     },
     success: function (res) {
       // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
-      console.log(res)
+      //console.log(res)
       wx.showToast({
         title: '保存成功',
         
@@ -72,13 +73,16 @@ Page({
     //为避免图片名称重复，用正则表达式设置图片云名称
     //var cloudPath = Data.now() + form.img.match(/\.[^.]+?$/)[0];
     wx.cloud.uploadFile({
-      cloudPath: `${Math.floor(Math.random() * 10000000)}.png`,  //使用cloudPath也行，严格来讲使用随机数表达更好 
+      cloudPath: `${Math.floor(Math.random() * 1000000000)}.png`,  //使用cloudPath也行，严格来讲使用随机数表达更好 
       filePath: form.img, // 文件路径
       success: res => {
         // get resource ID
-        console.log(res.fileID);
+        //console.log(res.fileID);
         var fileID = res.fileID;
         that.addComment(fileID);
+        wx.navigateTo({
+          url: '/pages/list/list',
+        })
       },
       fail: err => {
         // handle error

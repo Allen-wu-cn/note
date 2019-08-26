@@ -1,7 +1,14 @@
 <scroll-view scroll-y>
-  <view wx:for="{{comments}}" wx:key="comments">
-    
-    <text>{{item.comment}}</text>
-    <image src="{{item.img}}" mode="aspectFit"></image>
+  <view class="comment" wx:for="{{comments}}" wx:key="comments" class="comment">
+    <view>
+      <text>{{item.timeInfo.year}}/</text>
+      <text>{{item.timeInfo.month}}/</text>
+      <text>{{item.timeInfo.date}}</text>
+      <text>{{item.timeInfo.hours}}</text>
+      <text>{{item.timeInfo.minutes}}</text>
+      
+    </view>
+    <text class="comment-conent" >{{item.comment}}</text>
+    <image class="comment-pic" src="{{item.img}}" mode="aspectFit"></image>
   </view>
 </scroll-view>
