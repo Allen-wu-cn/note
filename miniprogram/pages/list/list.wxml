@@ -1,0 +1,7 @@
+<scroll-view scroll-y>
+  <view wx:for="{{comments}}" wx:key="comments">
+    
+    <text>{{item.comment}}</text>
+    <image src="{{item.img}}" mode="aspectFit"></image>
+  </view>
+</scroll-view>
