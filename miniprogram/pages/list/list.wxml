@@ -3,8 +3,8 @@
     <view>
       <text>{{item.timeInfo.year}}/</text>
       <text>{{item.timeInfo.month}}/</text>
-      <text>{{item.timeInfo.date}}</text>
-      <text>{{item.timeInfo.hours}}</text>
+      <text>{{item.timeInfo.date}}|</text>
+      <text>{{item.timeInfo.hours}}：</text>
       <text>{{item.timeInfo.minutes}}</text>
       
     </view>
