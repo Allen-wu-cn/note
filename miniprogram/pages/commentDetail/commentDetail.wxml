@@ -1,0 +1,4 @@
+<view class="comment-detail">
+  <image src="{{comment.img}}" class="comment-img" mode="aspectFit"></image>
+  <text class="comment-comment" space="nbsp">{{comment.comment}}</text> 
+</view>

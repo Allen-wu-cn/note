@@ -9,3 +9,20 @@ page{
 .comment-conent{
   
 }
+.comment-year{
+  display: block;
+  font-size: 30rpx;
+}
+.comment-month{
+  font-size: 50rpx;
+}
+.comment-date{
+  font-size: 50rpx;
+}
+.comment-hours{
+  margin-left: 40rpx;
+  font-size: 30rpx;
+}
+.comment-minutes{
+  font-size: 30rpx;
+}

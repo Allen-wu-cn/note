@@ -1,0 +1,11 @@
+<view class="add">
+  <view class="add-item" bindtap="onBook">
+    <text class="add-item-text">写书摘</text>
+  </view>
+  <view class="add-item" bindtap="onComment">
+    <text class="add-item-text">写评论</text>
+  </view>
+  <view class="add-item" bindtap="onArticle">
+    <text class="add-item-text">写文章</text>
+  </view>
+</view>

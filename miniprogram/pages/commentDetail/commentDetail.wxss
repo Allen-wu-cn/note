@@ -1,0 +1,14 @@
+.comment-detail{
+  width: 100%;
+  height: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.comment-img{
+  display: block;
+
+}
+.comment-comment{
+  box-sizing: border-box;
+  margin-top: 50rpx;
+}

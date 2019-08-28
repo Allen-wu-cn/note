@@ -1,6 +1,6 @@
 // miniprogram/pages/addComment/addComment.js
-const db = wx.cloud.database();
-const comments = db.collection('comments');
+// const db = wx.cloud.database();
+// const comments = db.collection('comments');
 
 Page({
 
@@ -44,26 +44,38 @@ Page({
   },
  
   addComment: function (fileID){
-    var form = this.data.form
-    comments.add({
-    // data 字段表示需新增的 JSON 数据
-    data: {
-      // _id: 'todo-identifiant-aleatoire', // 可选自定义 _id，在此处场景下用数据库自动分配的就可以了
-      img: fileID,
-      comment: form.comment,
-      time: Date.now()
-      
-    },
-    success: function (res) {
-      // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
-      //console.log(res)
-      wx.showToast({
-        title: '保存成功',
-        
-      })
-    },
-    fail: console.error
-  })
+    var form = this.data.form;
+    console.log('开始调用云函数');
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'db',
+      // 传给云函数的参数
+      data: {
+        type:"add",
+        img: fileID,
+        comment: form.comment,
+      },
+      success: function (res) {
+        //console.log("成功")
+        //console.log(res) // 3
+      },
+      fail: console.error
+    })
+  //   comments.add({
+  //   // data 字段表示需新增的 JSON 数据
+  //   data: {
+  //     img: fileID,
+  //     comment: form.comment,
+  //     time: Date.now()
+  //   },
+  //   success: function (res) {
+  //     //console.log(res)
+  //     wx.showToast({
+  //       title: '保存成功', 
+  //     })
+  //   },
+  //   fail: console.error
+  // })
   } ,
 
   //保存数据到云端
@@ -80,8 +92,8 @@ Page({
         //console.log(res.fileID);
         var fileID = res.fileID;
         that.addComment(fileID);
-        wx.navigateTo({
-          url: '/pages/list/list',
+        wx.switchTab({
+          url: '../../pages/list/list',
         })
       },
       fail: err => {
@@ -97,52 +109,5 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  }
+  
 })

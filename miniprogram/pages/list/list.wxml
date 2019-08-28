@@ -1,14 +1,23 @@
+<!-- 引入wxs脚本 -->
+<wxs src="../../wxs/subutil.wxs" module="tools" />
+<!-- 通过自定义的module名称tools引用sub截取方法 -->
+
 <scroll-view scroll-y>
-  <view class="comment" wx:for="{{comments}}" wx:key="comments" class="comment">
+  
+  <view class="comment" wx:for="{{comments}}" wx:key="comments" class="comment" >
+  <navigator url="../commentDetail/commentDetail?id={{item._id}}">
     <view>
-      <text>{{item.timeInfo.year}}/</text>
-      <text>{{item.timeInfo.month}}/</text>
-      <text>{{item.timeInfo.date}}</text>
-      <text>{{item.timeInfo.hours}}</text>
-      <text>{{item.timeInfo.minutes}}</text>
+      <text class="comment-year">{{item.timeInfo.year}}</text>
+      <text class="comment-month">{{item.timeInfo.month}}/</text>
+      <text class="comment-date">{{item.timeInfo.date}}</text>
+      <text class="comment-hours">{{item.timeInfo.hours}}:</text>
+      <text class="comment-minutes">{{item.timeInfo.minutes}}</text>
       
     </view>
-    <text class="comment-conent" >{{item.comment}}</text>
+    <text class="comment-conent" space='nbsp' >{{tools.sub(item.comment)}}</text>
     <image class="comment-pic" src="{{item.img}}" mode="aspectFit"></image>
+  </navigator>
   </view>
+ 
 </scroll-view>
+

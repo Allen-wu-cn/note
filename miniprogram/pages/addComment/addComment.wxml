@@ -7,6 +7,6 @@
     </view>
     <image class="comment-uploader-img" src="{{form.img}}" mode="aspectFit" wx:else></image>
   </view>
-  <textarea class="comment-text" placeholder="请输入评论..." bindinput="onInput"></textarea>
+  <textarea class="comment-text" placeholder="请输入评论..." bindinput="onInput" maxlength='-1'></textarea>
   <button class="comment-save"  bindtap="onSave" >保存</button>
 </view>
