@@ -92,7 +92,7 @@ Page({
         //console.log(res.fileID);
         var fileID = res.fileID;
         that.addComment(fileID);
-        wx.switchTab({
+        wx.reLaunch({
           url: '../../pages/list/list',
         })
       },

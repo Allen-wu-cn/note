@@ -4,8 +4,8 @@ var sub = function (val) {
   if (val.length == 0 || val == undefined) {
     return;
   }
-  if (val.length > 50) {
-    return val.substring(0, 50) + "...";
+  if (val.length > 80) {
+    return val.substring(0, 80) + "...";
   } else {
     return val;
   }

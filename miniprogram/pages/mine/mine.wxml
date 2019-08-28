@@ -1,11 +1,21 @@
-<view class="add">
-  <view class="add-item" bindtap="onBook">
-    <text class="add-item-text">写书摘</text>
+
+  <view class="userinfo">
+    <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="userinfo-avatar" style="background-image: url({{avatarUrl}})"></button>
+    <view class="userName">
+      <open-data type="userNickName"></open-data>
+    </view>
   </view>
+
+  <view class="add">
   <view class="add-item" bindtap="onComment">
-    <text class="add-item-text">写评论</text>
+      <image src="../../images/finger.png" class="add-item-finger"></image><text class="add-item-text">写评论</text>
+    </view>
+    <view class="add-item" bindtap="onBook">
+      <image src="../../images/finger.png" class="add-item-finger"></image><text class="add-item-text">写书摘</text>
+    </view>
+    <view class="add-item" bindtap="onArticle">
+      <image src="../../images/finger.png" class="add-item-finger"></image><text class="add-item-text">写文章</text>
+    </view>
   </view>
-  <view class="add-item" bindtap="onArticle">
-    <text class="add-item-text">写文章</text>
-  </view>
-</view>
+
+  <button open-type="feedback" class="feedback">意见反馈</button>

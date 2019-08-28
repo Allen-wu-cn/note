@@ -4,7 +4,8 @@
     "pages/addComment/addComment",
     "pages/mine/mine",
     "pages/addDigest/addDigest",
-    "pages/commentDetail/commentDetail"
+    "pages/commentDetail/commentDetail",
+    "pages/addArticle/addArticle"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
