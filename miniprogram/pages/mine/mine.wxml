@@ -10,9 +10,6 @@
   <view class="add-item" bindtap="onComment">
       <image src="../../images/finger.png" class="add-item-finger"></image><text class="add-item-text">写评论</text>
     </view>
-    <view class="add-item" bindtap="onBook">
-      <image src="../../images/finger.png" class="add-item-finger"></image><text class="add-item-text">写书摘</text>
-    </view>
     <view class="add-item" bindtap="onArticle">
       <image src="../../images/finger.png" class="add-item-finger"></image><text class="add-item-text">写文章</text>
     </view>

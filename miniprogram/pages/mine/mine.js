@@ -69,12 +69,7 @@ onComment: function() {
     url: '../../pages/addComment/addComment',
   })
 },
-  //点击写书摘
-  onBook: function () {
-    wx.navigateTo({
-      url: '../../pages/addDigest/addDigest',
-    })
-  },
+  
   //点击写文章
   onArticle: function () {
     wx.navigateTo({

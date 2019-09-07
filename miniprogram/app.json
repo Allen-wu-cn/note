@@ -3,7 +3,6 @@
     "pages/list/list",
     "pages/addComment/addComment",
     "pages/mine/mine",
-    "pages/addDigest/addDigest",
     "pages/commentDetail/commentDetail",
     "pages/addArticle/addArticle"
   ],
@@ -11,7 +10,7 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#1296db",
-    "navigationBarTitleText": "随心记",
+    "navigationBarTitleText": "云笔记",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
@@ -30,6 +29,11 @@
         "selectedIconPath": "images/mine-light.png"
       }
     ]
+  },
+  "usingComponents": {
+    "van-icon": "vant-weapp/icon",
+    "van-cell": "vant-weapp/cell/",
+    "van-cell-group": "vant-weapp/cell-group"
   },
   "sitemapLocation": "sitemap.json"
 }

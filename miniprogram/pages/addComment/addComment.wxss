@@ -48,10 +48,10 @@ page{
   border-radius: 20rpx;
  
 }
-.comment-save{
-  
-  margin: 10rpx;
+
+button{
+  margin: 5rpx;
   flex: 0 0 90rpx;
- background-color: skyblue;
+ background-color: #1296db;
  color: white;
 }

@@ -5,6 +5,7 @@ page{
 }
 .comment{
   margin: 20rpx 20rpx 0;
+  border-bottom: 1rpx solid #e4e4e4;
 }
 .comment-conent{
   
@@ -25,4 +26,7 @@ page{
 }
 .comment-minutes{
   font-size: 30rpx;
+}
+.comment-pic{
+  margin: 10rpx 0;
 }

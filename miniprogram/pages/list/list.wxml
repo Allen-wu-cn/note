@@ -1,5 +1,6 @@
 <!-- 引入wxs脚本 -->
 <wxs src="../../wxs/subutil.wxs" module="tools" />
+
 <!-- 通过自定义的module名称tools引用sub截取方法 -->
 
 <scroll-view scroll-y>
@@ -11,8 +12,15 @@
       <text class="comment-month">{{item.timeInfo.month}}/</text>
       <text class="comment-date">{{item.timeInfo.date}}</text>
       <text class="comment-hours">{{item.timeInfo.hours}}:</text>
-      <text class="comment-minutes">{{item.timeInfo.minutes}}</text>
-      
+      <text class="comment-minutes">{{item.timeInfo.minutes}}</text> 
+    </view>
+    <view >
+    <van-cell 
+    wx:if="{{item.locationObj.name}}"  
+    title="位置" 
+    border="{{flase}}"
+    value="{{item.locationObj.name}}"
+    />
     </view>
     <text class="comment-conent" space='nbsp' >{{tools.sub(item.comment)}}</text>
     <image class="comment-pic" src="{{item.img}}" mode="aspectFit"></image>

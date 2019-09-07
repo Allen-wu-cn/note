@@ -39,7 +39,8 @@ function add(event, context) {
         img: event.img,
         comment: event.comment,
         time: Date.now(),
-        openid: event.userInfo.openId
+        openid: event.userInfo.openId,
+        locationObj:event.locationObj
       },
       success: function(res) {
         resolve(res);

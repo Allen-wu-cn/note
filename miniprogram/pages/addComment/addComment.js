@@ -10,11 +10,15 @@ Page({
   data: {
     form: {
       img: '',
-      comment: ''
+      comment: '',
+      
     },
     showAdd: true
   },
-
+//pageData
+pageData:{
+   locationObj:{}
+},
   //点击上传图片事件
   uploadImg: function() {
     var that = this;
@@ -32,6 +36,22 @@ Page({
 
 
       }
+    })
+  },
+  //选择所在位置
+  chooseLocation: function (e) {
+    var that = this;
+    wx.chooseLocation({
+      success: res => {
+        //console.log(res)
+        let locationObjs = {
+          latitude: res.latitude,
+          longitude: res.longitude,
+          name: res.name,
+          address: res.address
+        };
+       that.pageData.locationObj= locationObjs
+      },
     })
   },
   //获取评论内容
@@ -54,6 +74,7 @@ Page({
         type:"add",
         img: fileID,
         comment: form.comment,
+        locationObj:this.pageData.locationObj
       },
       success: function (res) {
         //console.log("成功")
@@ -82,7 +103,13 @@ Page({
   onSave: function() {
     var that = this;
     var form = this.data.form;
-    //为避免图片名称重复，用正则表达式设置图片云名称
+   if( !form.img ){
+     wx.showToast({
+       title: '列表不能为空',
+     });
+     return
+   };
+    //为避免图片名称重复生成唯一路径，用正则表达式设置图片云名称
     //var cloudPath = Data.now() + form.img.match(/\.[^.]+?$/)[0];
     wx.cloud.uploadFile({
       cloudPath: `${Math.floor(Math.random() * 1000000000)}.png`,  //使用cloudPath也行，严格来讲使用随机数表达更好 

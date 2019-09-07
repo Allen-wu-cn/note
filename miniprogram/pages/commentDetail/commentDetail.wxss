@@ -6,8 +6,12 @@
 }
 .comment-img{
   display: block;
-
-
+}
+.comment-loc{
+  margin-top: 10rpx;
+}
+.comment-loc text{
+   margin-right: 30rpx;
 }
 .comment-comment{
   display: block;
