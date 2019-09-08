@@ -14,12 +14,15 @@ Page({
     comments: ''
   },
 
+// 
+onShow:function(){
+  this.getData();
+},
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.getData();
-
+    
   },
   //获取云端数据
   getData: function() {
@@ -90,11 +93,7 @@ Page({
    */
   onPullDownRefresh: function() {
     this.getData();
-    wx.stopPullDownRefresh(
-        wx.showToast({
-          title: '刷新完成',
-        })
-    );
+    wx.stopPullDownRefresh();
   },
 
   /**

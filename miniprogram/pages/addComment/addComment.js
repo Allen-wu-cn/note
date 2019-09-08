@@ -119,9 +119,14 @@ pageData:{
         //console.log(res.fileID);
         var fileID = res.fileID;
         that.addComment(fileID);
-        wx.reLaunch({
-          url: '../../pages/list/list',
+        wx.showToast({
+          title: '保存成功',
         })
+        setTimeout(function () {
+          wx.switchTab({
+            url: '../../pages/list/list',
+          })
+        }, 1000);
       },
       fail: err => {
         // handle error
